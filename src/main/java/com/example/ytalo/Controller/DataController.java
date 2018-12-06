@@ -5,6 +5,7 @@ import com.example.ytalo.Service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,8 +14,19 @@ public class DataController {
     @Autowired
     private DataService dataService;
 
+    Date date = new Date("01/01/2018");
+
+    @GetMapping("/test")
+    public String test(){
+        dataService.save(new Data(9999,"Esto","es","una","prueba", date));
+        return "Creado Exitosamente";
+    }
+
     @GetMapping("/list")
     public List<Data> listar(){return dataService.findAll();}
+
+    @GetMapping("/all")
+    public List<Data> orden(){return dataService.findAllByOrderByFechaDesc();}
 
     @GetMapping("/list/{id}")
     public Data retrieveData(@PathVariable String id){

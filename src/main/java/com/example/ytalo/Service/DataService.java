@@ -18,4 +18,6 @@ public class DataService {
     public Data save(Data data){return dataRepository.save(data);}
     public void delete(String id){dataRepository.deleteById(id);}
     public Optional<Data> findDataById(String id){return dataRepository.findById(id);}
+
+    public List<Data> findAllByOrderByFechaDesc(){return dataRepository.findAllByOrderByFechaDesc();}
 }
