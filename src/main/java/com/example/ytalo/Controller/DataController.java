@@ -14,13 +14,8 @@ public class DataController {
     @Autowired
     private DataService dataService;
 
-    Date date = new Date("01/01/2018");
 
-    @GetMapping("/test")
-    public String test(){
-        dataService.save(new Data(9999,"Esto","es","una","prueba", date));
-        return "Creado Exitosamente";
-    }
+
 
     @GetMapping("/list")
     public List<Data> listar(){return dataService.findAll();}
@@ -40,11 +35,13 @@ public class DataController {
 
     @PostMapping("/new")
     public String newData(@RequestBody Data data){
+        Date date = new Date();
+        date.getTime();
         Data data1 = dataService.save(data);
-        return "Creado Exitosamente";
+        return "Creado Exitosamente @"+date+".";
     }
 
-    @DeleteMapping("/list/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteData(@PathVariable String id){
         dataService.delete(id);
         return "Elemento eliminado";

@@ -1,5 +1,6 @@
 package com.example.ytalo.Entity;
 
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,9 +13,9 @@ public class Data {
     public String titulo;
     public String resumen;
     public String link;
-    public Date fecha;
     @CreatedDate
-    private Date createdOn;
+    public Date fecha;
+
 
     public int getId() {
         return id;
