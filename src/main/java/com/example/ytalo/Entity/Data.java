@@ -2,13 +2,16 @@ package com.example.ytalo.Entity;
 
 
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
 @Document
 public class Data {
-    public int id;
+
+    @Id
+    public String id;
     public String foto;
     public String titulo;
     public String resumen;
@@ -17,13 +20,14 @@ public class Data {
     public Date fecha;
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
+
 
     public String getFoto() {
         return foto;
@@ -65,7 +69,7 @@ public class Data {
         this.fecha = fecha;
     }
 
-    public Data(int id, String foto, String titulo, String resumen, String link, Date fecha) {
+    public Data(String id, String foto, String titulo, String resumen, String link, Date fecha) {
         this.id = id;
         this.foto = foto;
         this.titulo = titulo;

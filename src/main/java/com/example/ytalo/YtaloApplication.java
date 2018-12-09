@@ -10,7 +10,7 @@ public class YtaloApplication {
 
     public static void main(String[] args)
     {
-        System.setProperty("user.timezone", "America/New_York");
+        System.setProperty("user.timezone", "UTC-5");
         SpringApplication.run(YtaloApplication.class, args);
     }
 }

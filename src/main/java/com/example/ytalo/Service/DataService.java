@@ -20,4 +20,5 @@ public class DataService {
     public Optional<Data> findDataById(String id){return dataRepository.findById(id);}
 
     public List<Data> findAllByOrderByFechaDesc(){return dataRepository.findAllByOrderByFechaDesc();}
+    public Data findTopByOrderByIdDesc(){return dataRepository.findTopByOrderByIdDesc();}
 }
